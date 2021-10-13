@@ -1,0 +1,20 @@
+function drawBall(){
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d');
+    var centerX = canvas.width / 2;
+    var centerY = canvas.height / 2;
+    var radius = 10;
+
+    // centerX=centerX-(radius/2);
+    // centerY=centerY-(radius/2);
+    //Não tem necessidade disso pra centralizar, não é o primeiro px que conta e sim o centro do 
+    //radius aparentemente
+
+    context.beginPath();
+    context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = 'green';
+    context.fill();
+    context.lineWidth = 5;
+    context.strokeStyle = '#003300';
+    context.stroke();
+}
