@@ -84,7 +84,7 @@
   function moveUp(p = 1) {
     if (p == 1) {
       if (posP1 > 0) {
-        ctx.clearRect(p1X, posP1, 35, 100);
+        
         posP1 -= speedBar;
         
       }
@@ -92,7 +92,7 @@
       //Fazendo duas vezes pra ver se dá mais fluidez.
       //tenho que testar mais a fundo pra ver se realmente está mais fluido
       if (posP2 > 0) {
-        ctx.clearRect(p2X, posP2, 35, 100);
+        // ctx.clearRect(p2X, posP2, 35, 100);
         posP2 -= speedBar;
         
         
@@ -106,11 +106,11 @@
     if (p == 1) {
       if (posP1 < 500) {
 
-        ctx.clearRect(p1X, posP1, 35, 100);
+        // ctx.clearRect(p1X, posP1, 35, 100);
         posP1 += speedBar / 2;
         roundedRect(ctx, p1X, posP1, 35, 100, 5, '#fff');
 
-        ctx.clearRect(p1X, posP1, 35, 100);
+        // ctx.clearRect(p1X, posP1, 35, 100);
         posP1 += speedBar / 2;
         roundedRect(ctx, p1X, posP1, 35, 100, 5, '#fff');
       }
@@ -118,11 +118,11 @@
       //Fazendo duas vezes pra ver se dá mais fluidez.
       //tenho que testar mais a fundo pra ver se realmente está mais fluido
       if (posP2 < 500) {
-        ctx.clearRect(p2X, posP2, 35, 100);
+        // ctx.clearRect(p2X, posP2, 35, 100);
         posP2 += speedBar / 2;
         roundedRect(ctx, p2X, posP2, 35, 100, 5, '#fff');
 
-        ctx.clearRect(p2X, posP2, 35, 100);
+        // ctx.clearRect(p2X, posP2, 35, 100);
         posP2 += speedBar / 2;
         roundedRect(ctx, p2X, posP2, 35, 100, 5, '#fff');
       }
@@ -139,7 +139,7 @@
   }
 
   function updateBall() {
-    ctx.clearRect(bPosX - (bRadius+10), bPosY - (bRadius+10), 70, 70);
+    // ctx.clearRect(bPosX - (bRadius+10), bPosY - (bRadius+10), 70, 70);
 
     drawField();
 
@@ -258,8 +258,9 @@
   }
 
   function main() {
-    
-
+    //Faça as updates e não faça a animação, deixe a animação aqui
+    ctx.restore();
+    ctx.clearRect(0, 0, cwidth, cheight);
     executeMoves();
     globalID = requestAnimationFrame(main);
     
