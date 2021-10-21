@@ -166,12 +166,12 @@
       //verificar se foi em cima, baixo ou meio da barra e 
       //calcular nova velocidade
       if(newPosX==75){
-        if(bPosY>= posP1  && bPosY<=posP1+100){
+        if((bPosY+bRadius)>= posP1  && (bPosY-bRadius)<=posP1+100){
           bSpeedX=-bSpeedX;
           return false;
         }
       }if(newPosX==1223){
-        if(bPosY>= posP2  && bPosY<=posP2+100){
+        if((bPosY+bRadius)>= posP2  && (bPosY-bRadius)<=posP2+100){
           bSpeedX=-bSpeedX;
           return false;
         }
@@ -257,19 +257,18 @@
     })
   }
 
-  function init() {
-    myVar = setInterval(main, 1000 / fps);
-  }
-
   function main() {
-    requestAnimationFrame(executeMoves());
     
+
+    executeMoves();
+    globalID = requestAnimationFrame(main);
     
   }
-
+  globalID = requestAnimationFrame(main);
   draw();
+  main();
 
-  init();
+  
 
   
 </script>
